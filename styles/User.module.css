@@ -1,0 +1,11 @@
+.title1{
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 1rem;
+}
+
+.data{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem;
+}

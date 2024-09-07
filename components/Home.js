@@ -18,12 +18,15 @@ useEffect ( () => {
   .then((data) => {
     setMoviesList(data.movies);
   })
-  console.log(moviesList)
+  .catch((error) => {
+    console.log(error);
+  });
 }, [])
 
 const updateLastMovies = (movieTitle) => {
   const found = lastMovies.find(el => el === movieTitle)
   if (lastMovies){
+    return;
 
   }
   setLastMovies ([...lastMovies, movieTitle]);
@@ -41,6 +44,11 @@ const updateLastMovies = (movieTitle) => {
 //créér les props a faire passer dans le composant movie du map()
 // Faire passer les props vers le composant movie
 
+const updateLikedMovies = (movieTitle) => {
+  const newMovies = lastMovies.filter(el => el !== movieTitle);
+  setLastMovies(newMovies);
+}
+
 const films = moviesList.map((el, i) => {
   return (
     <Movie
@@ -53,8 +61,8 @@ const films = moviesList.map((el, i) => {
      key={i}
      />
   );
-  console.log(moviesList);
 });
+console.log(moviesList);
 
   
     const popoverContent = lastMovies.map((el,i) => {
