@@ -8,7 +8,7 @@ const User = () => {
 
   useEffect(() => {
     // Fait un appel à l'API pour récupérer la liste des utilisateurs
-    fetch('http://moviz-back-seven.vercel.app/users') 
+    fetch('https://moviz-back-seven.vercel.app/users') 
       .then((response) => response.json())
       .then((data) => {
         setUsers(data.users || []); // Met à jour l'état avec les utilisateurs
