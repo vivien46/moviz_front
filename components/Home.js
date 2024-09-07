@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Image from 'next/image';
 import 'antd/dist/antd.css';
 import { Popover, Button } from 'antd';
 import Movie from '../components/Movie';
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function Home() {
@@ -17,7 +20,7 @@ useEffect ( () => {
     setMoviesList(data.movies);
   })
   console.log(moviesList)
-}, [])
+}, [moviesList])
 
 const updateLastMovies = (movieTitle) => {
   const found = lastMovies.find(el => el === movieTitle)
@@ -43,7 +46,7 @@ const films = moviesList.map((el, i) => {
   return (
     <Movie
      title={el.title}
-     poster="https://image.tmdb.org/t/p/w500/${poster_path}"
+     poster={'https://image.tmdb.org/t/p/w500' + el.poster_path}
      voteAverage={el.voteAverage}
      voteCount={el.voteCount}
      overview={el.overview}
@@ -68,7 +71,7 @@ const films = moviesList.map((el, i) => {
   <div className={styles.main}>
     <div className={styles.header}>
       <div className={styles.logoContainer}>
-        <img src="logo.png" alt="logo" />
+        <Image src="logo.png" alt="logo" />
         <p className={styles.title}>Movies</p>
       </div>
       <Popover title='Liked Movies' content={popoverContent} trigger="click">
