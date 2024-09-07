@@ -13,7 +13,7 @@ const [lastMovies, setLastMovies] = useState([]);
 const [ moviesList, setMoviesList] = useState([]);
 
 useEffect ( () => {
-  fetch('http://localhost:4000/movies')
+  fetch('https://moviz-back-seven.vercel.app/movies')
   .then((res) => res.json())
   .then((data) => {
     setMoviesList(data.movies);
