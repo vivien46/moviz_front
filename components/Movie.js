@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from '../styles/Movie.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faVideo, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { Image } from 'antd';
 
 function Movie(props) {
     const stars =[];
